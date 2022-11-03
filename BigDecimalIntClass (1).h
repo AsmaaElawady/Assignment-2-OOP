@@ -1,18 +1,38 @@
-// FCAI – Object-Oriented Programming 1 – 2022 - Assignment 1
-// Program Name: BigDecimalInt
-// Last Modification Date: 13/10/2022
-// Author1 and ID and Group: Basmala Mohamed Sayed Gad  ID: 20210090 (a, b, c)
-// Author2 and ID and Group: Aya Ali Hassan  ID: 20210083 (d, e)
-// Author3 and ID and Group: Mohamed Ashraf Fahim  ID: 20210329 (f, i, j , k)
-/*
-description: In this problem we developed a new C++ type (class).
-that can hold unlimited decimal integer values and performs arithmetic operations on them.
-such as: +, -, <, and >.
- */
+#ifndef UNTITLED1_BIGDECINT_H
+#define UNTITLED1_BIGDECINT_H
 
-#ifndef BIGDECIMALINT_BIGDECIMALINTCLASS_H
-#define BIGDECIMALINT_BIGDECIMALINTCLASS_H
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class BigDecimalInt{
+private:
+    vector <int> vec;
+    char s; // for the sign.
+public:
+    // constructor
+    BigDecimalInt (){}
+    void setVec (vector <int> v);
+    vector<int> getVector ();
+    void setS(char sign);
+    char getS();
+    BigDecimalInt (int decInt);
+    BigDecimalInt (string decStr);
+    // function to check the size of the two numbers and make thim equal.
+    void checkSize(vector <int>& v1,vector <int>& v2);
+    BigDecimalInt operator+ (BigDecimalInt anotherDec);
+    bool operator> (BigDecimalInt b) ;
+    bool operator< (BigDecimalInt b);
+    bool operator== (BigDecimalInt b);
+    bool operator= (BigDecimalInt b);
+    int size();
+    char sign();
+    BigDecimalInt operator- (BigDecimalInt anotherDec);
+    friend ostream& operator<< (ostream& out, BigDecimalInt a);
+
+    void subtraction(vector <int>& v1,vector <int>& v2);
+    void addition(vector <int>& v1,vector <int>& v2);
+    void zeros(vector <int>& v1);
 
 
-
-#endif //BIGDECIMALINT_BIGDECIMALINTCLASS_H
+};
