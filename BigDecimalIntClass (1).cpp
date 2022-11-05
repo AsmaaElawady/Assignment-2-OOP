@@ -1,5 +1,3 @@
-
-
 #include "BigDecimalIntClass.h"
 
 // regex function that checks the validation of the input.
@@ -44,11 +42,13 @@ bool BigDecimalInt :: operator < (const BigDecimalInt& anotherDec)
     string comp1 = "", comp2 = "";
     long long len1 = number.length(), len2 = anotherDec.number.length();
 
-    while (len1 < len2){
+    while (len1 < len2)
+    {
         comp1 += '0';
         len1++;
     }
-    while (len2 < len1){
+    while (len2 < len1)
+    {
         comp2 += '0';
         len2++;
     }
@@ -79,11 +79,13 @@ bool BigDecimalInt :: operator > (const BigDecimalInt &anotherDec)
     string comp1 = "", comp2 = "";
     long long len1 = number.length(), len2 = anotherDec.number.length();
 
-    while (len1 < len2){
+    while (len1 < len2)
+    {
         comp1 += '0';
         len1++;
     }
-    while (len2 < len1){
+    while (len2 < len1)
+    {
         comp2 += '0';
         len2++;
     }
@@ -147,7 +149,7 @@ string addition(string num1,string num2)
             carry = 1;
         }
         res = char((twoDigitsSum % 10) + '0') + res;
-        *(it1 + 1) = char(((*(it1 + 1) - '0') + carry) + '0');
+        (it1 + 1) = char ((((it1 + 1) - '0') + carry) + '0');
         it1++;
         it2++;
     }
@@ -159,7 +161,8 @@ string addition(string num1,string num2)
 }
 
 //subtraction implementation
-string subtraction(string num1,string num2){
+string subtraction(string num1,string num2)
+{
     deque<long long>d;
     string res;
 
@@ -192,25 +195,31 @@ BigDecimalInt BigDecimalInt :: operator + (BigDecimalInt number2)
     string num1 = number, num2 = number2.number;
     BigDecimalInt number1 = *this;
 
-    while (num1.length() < num2.length()){
+    while (num1.length() < num2.length())
+    {
         num1 = '0' + num1;
     }
-    while (num2.length() < num1.length()){
+    while (num2.length() < num1.length())
+    {
         num2 = '0' + num2;
     }
 
-    if (signNumber1 == signNumber2){
+    if (signNumber1 == signNumber2)
+    {
         result.signNumber = signNumber1;
         result.number = addition(num1,num2);
 
-    }else{
+    }
+    else
+    {
 
         if(number1.signNumber == '-')
         {
             number1.signNumber = '+';
             result = (number2 - number1);
         }
-        else{
+        else
+        {
             number2.signNumber = '+';
             result = (number1 - number2);
         }

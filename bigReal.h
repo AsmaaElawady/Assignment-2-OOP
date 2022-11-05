@@ -1,7 +1,9 @@
 #ifndef BIGREAL_H_INCLUDED
 #define BIGREAL_H_INCLUDED
 #include <iostream>
+#include"../BigDecimalIntClass.h"
 using namespace std;
+
 class BigReal
 {
 private:
@@ -10,6 +12,7 @@ private:
     char signn;
     void setNumber(string num);
     bool checkValidInput(string input);
+    bool checkInput(string input);
 public:
     BigReal (double realNumber = 0.0); // Default constructor
     BigReal (string realNumber);
@@ -26,8 +29,11 @@ public:
     int  Nsign();
     int size();
     friend ostream& operator<< (ostream& out, BigReal other);
+    friend istream& operator>> (istream& in, BigReal& other);
 
 };
+
+
 
 
 #endif // BIGREAL_H_INCLUDED
