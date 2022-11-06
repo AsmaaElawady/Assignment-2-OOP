@@ -4,7 +4,7 @@ bool BigReal::checkInput(string input)
 {
     if (input == ".")
         return false;
-    regex validInput("[-+]?[0-9].[0-9]");
+    regex validInput("[-+]?[0-9]+.[0-9]+");
     return regex_match(input, validInput);
 }
 
