@@ -58,7 +58,7 @@ BigReal::BigReal (string realNumber)
     }
     else
     {
-      //  cout << "Invalid Real Number" <<endl;
+       cout << "Invalid Real Number" <<endl;
     }
 
 }
